@@ -1,0 +1,39 @@
+CHANGES IN THIS VERSION
+=======================
+1. Tree trunk (world.js): same shape, 40% slimmer (TS = .6). Roots follow. Giri (engine.js) now sits
+   against the trunk instead of inside it; his blanket, cigarette pack and the rucksack were moved with him.
+   The rucksack now leans on the trunk. To fine tune: change TS in world.js and gs/seat in engine.js.
+2. Sound (engine.js):
+   - Ambient button now really toggles (before, "on" never changed so it did nothing).
+   - New soft open sounds for every object, and a new CLOSE sound when a panel is closed.
+   - Missing sounds added (page turn, butterfly). All effects use soft plucks and paper "air" in the
+     same key as the ambience, through one gentle filter, so they stay quiet and unharsh.
+   - Sounds wait for the first tap or key, so nothing bursts out when the page unlocks audio.
+3. claude-demo.html: the whole site in one file for previewing. index.html is still the real entry.
+
+ROUND 2
+=======
+4. Coffee cup (world.js): the old cup was a solid block with a flat brown disc buried inside it, so the
+   coffee was hidden/flickering and the cup looked empty. It is now a hollow ceramic cup with real liquid:
+   a level that rises and falls, and a creamy spiral that slowly drifts (faster while pouring).
+   The cup also sat out of Giri's reach and the cat could walk through it. It now sits on a flat "tea rock"
+   beside him, together with a new kettle.
+5. Drinking (engine.js, teaUpd): every 9 to 21 seconds (only when the smoking animation is idle and no panel is
+   open) Giri reaches with his left arm, lifts the cup to his lips, tips it and sips (4 sips per cup).
+   When it is empty he picks up the kettle, pours a visible stream into the cup (level rises, steam,
+   pouring sound), puts the kettle back, and starts sipping again. Arms use two-bone inverse kinematics.
+6. Epilogue: after every object has been opened once and the last panel is closed, a closing line appears
+   and the lantern glows for a moment. Set your own line with  epilogue: "..."  inside CONTENT in content.js.
+7. index.html had no <title> or description. Added both (tab name, search results, link previews).
+
+CLEAN-UP ROUND (code restructure, no content or look changed)
+==============================================================
+- engine.js (one 518-line file) is now split into js/: helpers, objects, weather-data, state, audio, panel, scene,
+  controls, main. Same code, same behaviour, readable formatting, numbered sections, a note at the top of each file.
+- style.css moved to css/style.css, formatted, with section banners. Removed 3 unused rules and merged duplicate
+  #intro rules. Added a plain-colour fallback for browsers without color-mix() (older iPhones/Androids).
+- editor.html: its CSS and JS moved to css/editor.css and js/editor.js. Behaviour identical.
+- index.html: new script list, favicon (no more /favicon.ico 404), link-preview tags, optional vendor/three.min.js fallback.
+- Removed from the site folder: claude-demo.html (a stale one-file copy of the whole site that would drift out of date).
+- README.txt replaced by README.md (more complete). CHANGES.txt, AI_PROMPT.txt moved here to docs/.
+- content.js is unchanged, byte for byte.

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Girichandran: some things stay</title>
+<meta name="description" content="A quiet interactive scene: someone sitting under a tree with a camera, a notebook, a film reel and a radio. Films, photographs, small stories and music by Girichandran.">
+<meta name="theme-color" content="#2b2433">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Girichandran: some things stay">
+<meta property="og:description" content="A quiet interactive scene: someone sitting under a tree with a camera, a notebook, a film reel and a radio. Films, photographs, small stories and music by Girichandran.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%232b2433'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%23f2c97a'/%3E%3C/svg%3E">
+
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<!-- WHERE THINGS LIVE (details in README.md)
+  content.js   YOUR INFO: text, links, photo names. This is the file you edit (or use editor.html).
+  css/         style.css: colours, fonts, layout.
+  js/          the code: world.js (3D models), scene.js (3D world), panel.js + ui.js (the screens that open), audio.js, ...
+  images/ audio/ files/   your photos, optional music and resume PDF.
+  [BRACKETED] text in content.js is treated as a placeholder and shown with a dashed underline.
+-->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<noscript><p style="position:fixed;inset:0;z-index:50;margin:0;padding:2rem;background:#2b2433;color:#f6ecd6;font:1.2rem/1.5 Georgia,serif">This is an interactive scene and needs JavaScript. Please enable it and reload.</p></noscript>
+<canvas id="c" aria-label="A 3D scene of someone sitting under a tree with a camera, a notebook, earphones, a film reel and a folder. Use the buttons to explore."></canvas>
+<div id="fx"><i></i></div><div id="glow"></div>
+
+<header><span></span><span><button id="snd" aria-pressed="true">Ambient sound: on</button><button id="reset">Reset view</button></span></header>
+<p id="cap" aria-live="polite"></p>
+<nav id="tabs" aria-label="Objects"></nav>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="liq"><feTurbulence type="fractalNoise" baseFrequency=".008" numOctaves="2" seed="3" result="n"><animate attributeName="baseFrequency" dur="6s" values=".008;.014;.008" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="90"/></filter></svg><div id="blob"></div>
+<aside id="panel" role="dialog" aria-labelledby="pt" aria-modal="true"><button id="x" aria-label="Close">×</button><div id="pb"></div></aside>
+<div id="intro"><h1><span>Some things leave.</span><span>Some things stay.</span></h1><i class="lid t"></i><i class="lid b"></i></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- If the CDN above is blocked, use a copy saved at vendor/three.min.js (see README.md, "Self-host three.js"). -->
+<script>window.THREE || document.write('<script src="vendor/three.min.js"><\/script>');</script>
+<script src="content.js"></script>
+<script src="js/world.js"></script>
+<script src="js/helpers.js"></script>
+<script src="js/objects.js"></script>
+<script src="js/weather-data.js"></script>
+<script src="js/state.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/panel.js"></script>
+<script src="js/scene.js"></script>
+<script src="js/controls.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

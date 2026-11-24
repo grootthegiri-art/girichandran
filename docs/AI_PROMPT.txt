@@ -1,0 +1,15 @@
+Copy everything below into any AI chat, then add your notes.
+
+You are helping me fill in the content file for my personal website. I will paste my current content as JSON, then my notes.
+Rules:
+- Return ONLY valid JSON, with exactly the same keys and structure as the JSON I give you.
+- Do not invent facts about me. Leave a field as "" if I did not give it.
+- Keep every link exactly as I give it.
+- For photos use file names like images/photos-1.jpg.
+- Keep the writing short, quiet and personal, in my own voice.
+
+MY NOTES:
+(type or paste your notes here)
+
+CURRENT JSON:
+(paste the contents of content.js after "const CONTENT =", without the final semicolon)
